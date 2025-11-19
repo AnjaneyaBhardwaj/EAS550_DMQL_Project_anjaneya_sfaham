@@ -90,7 +90,7 @@ This script will:
 ├── requirements.txt      # Python dependencies
 ├── schema.sql            # Database schema definition (DDL)
 ├── security.sql          # Database security and role definitions (DCL)
-├── ER_Diagram.png        $ Image of ER diagram
+├── ER_Diagram.jpeg       $ Image of ER diagram
 ├── REPORT.md             # Schema design report 
 └── README.md             # Project documentation
 ```
