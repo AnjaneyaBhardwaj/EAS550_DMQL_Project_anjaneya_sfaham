@@ -14,7 +14,6 @@ csv_path = os.path.join(path, "healthcare_dataset.csv")
 df = pd.read_csv(csv_path)
 
 def process_dimension(df, col_name, table_name, db_col_name, id_col_name):
-    print(f"Processing {table_name}...")
     unique_vals = df[[col_name]].drop_duplicates().dropna()
     unique_vals.columns = [db_col_name] # Rename to match DB schema
     
@@ -28,7 +27,7 @@ def process_dimension(df, col_name, table_name, db_col_name, id_col_name):
 
     return dict(zip(dim_table[db_col_name], dim_table[id_col_name]))
 
-
+print("Processing...")
 patients = df[['Name', 'Age', 'Gender', 'Blood Type']].drop_duplicates()
 patients.columns = ['name', 'age', 'gender', 'blood_type'] 
 patients.to_sql('patients', engine, if_exists='append', index=False)
