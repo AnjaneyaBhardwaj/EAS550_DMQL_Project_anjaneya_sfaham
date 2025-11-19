@@ -8,7 +8,6 @@ engine = create_engine(db_url)
 
 
 path = kagglehub.dataset_download("prasad22/healthcare-dataset")
-print("Path to dataset files:", path)
 
 # Load the dataset
 csv_path = os.path.join(path, "healthcare_dataset.csv")
@@ -30,7 +29,6 @@ def process_dimension(df, col_name, table_name, db_col_name, id_col_name):
     return dict(zip(dim_table[db_col_name], dim_table[id_col_name]))
 
 
-print("Processing Patients...")
 patients = df[['Name', 'Age', 'Gender', 'Blood Type']].drop_duplicates()
 patients.columns = ['name', 'age', 'gender', 'blood_type'] 
 patients.to_sql('patients', engine, if_exists='append', index=False)
@@ -43,7 +41,6 @@ insurance_dict = process_dimension(df, 'Insurance Provider', 'insuranceproviders
 condition_dict = process_dimension(df, 'Medical Condition', 'medicalconditions', 'condition_name', 'condition_id')
 medication_dict = process_dimension(df, 'Medication', 'medications', 'medication_name', 'medication_id')
 
-print("Processing Admissions...")
 
 admissions = df.copy()
 
