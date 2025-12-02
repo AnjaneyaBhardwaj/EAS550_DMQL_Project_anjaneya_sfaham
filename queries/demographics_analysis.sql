@@ -49,34 +49,12 @@ FROM (
 ORDER BY Condition_Name, Gender_Rank;
 
 
--- Query 3: Blood type prevalence by medical condition (with percentages)
-SELECT 
-    Condition_Name,
-    Blood_Type,
-    Patient_Count,
-    ROUND(100.0 * Patient_Count / SUM(Patient_Count) OVER (PARTITION BY Condition_Name), 2) AS Percentage,
-    RANK() OVER (PARTITION BY Condition_Name ORDER BY Patient_Count DESC) AS Blood_Type_Rank
-FROM (
-    SELECT 
-        mc.Condition_Name,
-        p.Blood_Type,
-        COUNT(*) AS Patient_Count
-    FROM Admissions a
-    JOIN Patients p ON a.Patient_ID = p.Patient_ID
-    JOIN MedicalConditions mc ON a.Condition_ID = mc.Condition_ID
-    WHERE p.Blood_Type IS NOT NULL
-    GROUP BY mc.Condition_Name, p.Blood_Type
-) AS blood_type_stats
-ORDER BY Condition_Name, Blood_Type_Rank;
-
-
--- Query 4: Combined demographics summary per condition
+-- Query 3: Combined demographics summary per condition
 SELECT 
     mc.Condition_Name,
     COUNT(DISTINCT a.Patient_ID) AS Total_Patients,
     ROUND(AVG(p.Age), 1) AS Avg_Age,
-    MODE() WITHIN GROUP (ORDER BY p.Gender) AS Most_Common_Gender,
-    MODE() WITHIN GROUP (ORDER BY p.Blood_Type) AS Most_Common_Blood_Type
+    MODE() WITHIN GROUP (ORDER BY p.Gender) AS Most_Common_Gender
 FROM Admissions a
 JOIN Patients p ON a.Patient_ID = p.Patient_ID
 JOIN MedicalConditions mc ON a.Condition_ID = mc.Condition_ID
