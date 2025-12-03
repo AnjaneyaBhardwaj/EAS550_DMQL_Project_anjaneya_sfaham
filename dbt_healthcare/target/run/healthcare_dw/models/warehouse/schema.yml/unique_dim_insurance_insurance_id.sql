@@ -1,0 +1,27 @@
+
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    insurance_id as unique_field,
+    count(*) as n_records
+
+from "healthcare"."public_warehouse"."dim_insurance"
+where insurance_id is not null
+group by insurance_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test

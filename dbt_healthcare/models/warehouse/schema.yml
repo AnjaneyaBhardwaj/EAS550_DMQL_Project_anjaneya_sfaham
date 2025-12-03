@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: dim_patient
+    description: "Patient dimension table"
+    columns:
+      - name: patient_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_doctor
+    description: "Doctor dimension table"
+    columns:
+      - name: doctor_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_hospital
+    description: "Hospital dimension table"
+    columns:
+      - name: hospital_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_insurance
+    description: "Insurance provider dimension table"
+    columns:
+      - name: insurance_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_condition
+    description: "Medical condition dimension table"
+    columns:
+      - name: condition_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_medication
+    description: "Medication dimension table"
+    columns:
+      - name: medication_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: "Date dimension table"
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+      - name: season
+        tests:
+          - accepted_values:
+              values: ['Spring', 'Summer', 'Fall', 'Winter']
+
+  - name: fact_admissions
+    description: "Fact table - one row per hospital admission"
+    columns:
+      - name: admission_key
+        tests:
+          - unique
+          - not_null
+      - name: billing_amount
+        tests:
+          - not_null

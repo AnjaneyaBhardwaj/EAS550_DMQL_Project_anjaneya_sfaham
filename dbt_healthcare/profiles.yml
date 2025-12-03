@@ -1,0 +1,12 @@
+healthcare_dw:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: sfaham_anjaneya
+      password: sfaham_anjaneya_password
+      port: 5432
+      dbname: healthcare
+      schema: public
+      threads: 4
