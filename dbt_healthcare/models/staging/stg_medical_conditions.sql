@@ -1,4 +1,3 @@
--- Staging: Medical Conditions
 SELECT
     condition_id,
     condition_name,

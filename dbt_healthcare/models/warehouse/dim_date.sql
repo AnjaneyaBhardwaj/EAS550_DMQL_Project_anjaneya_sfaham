@@ -1,4 +1,3 @@
--- Dimension: Date
 WITH date_range AS (
     SELECT 
         generate_series(

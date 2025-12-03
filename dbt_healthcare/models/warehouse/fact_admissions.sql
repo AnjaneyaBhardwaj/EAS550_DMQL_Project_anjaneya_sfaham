@@ -1,10 +1,6 @@
--- Fact Table: Admissions
--- Grain: One row per hospital admission
-
 SELECT
     ROW_NUMBER() OVER (ORDER BY a.admission_id) AS admission_key,
     
-    -- Foreign keys to dimensions
     p.patient_key,
     d.doctor_key,
     h.hospital_key,
@@ -12,7 +8,6 @@ SELECT
     c.condition_key,
     m.medication_key,
     
-    -- Degenerate dimensions (no separate table needed)
     a.admission_type,
     a.room_number,
     a.test_results,
@@ -21,7 +16,6 @@ SELECT
     a.billing_amount,
     a.length_of_stay,
     
-    -- Dates for reference
     a.date_of_admission,
     a.discharge_date
 

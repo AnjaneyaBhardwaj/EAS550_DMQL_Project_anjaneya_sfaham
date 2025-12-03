@@ -1,4 +1,3 @@
--- Staging: Patients
 SELECT
     patient_id,
     name AS patient_name,

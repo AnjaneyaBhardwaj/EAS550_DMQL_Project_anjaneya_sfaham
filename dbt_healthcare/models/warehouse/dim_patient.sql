@@ -1,4 +1,3 @@
--- Dimension: Patient
 SELECT
     ROW_NUMBER() OVER (ORDER BY patient_id) AS patient_key,
     patient_id,

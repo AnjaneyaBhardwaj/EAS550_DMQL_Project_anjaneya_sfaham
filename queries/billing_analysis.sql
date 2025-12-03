@@ -1,7 +1,7 @@
 -- Business Question: Which medical conditions generate the highest average billing revenue,
 -- and how does this vary across different insurance providers?
 
--- Query 1: Overall average billing by medical condition
+-- Query 1: average billing by medical condition
 SELECT 
     mc.Condition_Name,
     ROUND(AVG(a.Billing_Amount), 2) AS Avg_Billing,

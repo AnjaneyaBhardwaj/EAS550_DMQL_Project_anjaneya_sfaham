@@ -1,4 +1,3 @@
--- Staging: Admissions
 SELECT
     admission_id,
     patient_id,
