@@ -1,4 +1,4 @@
--- Business Question: What is the unique patient count per doctor, and do doctors with 
+-- What is the unique patient count per doctor, and do doctors with 
 -- the highest patient volume show higher rates of 'Elective' vs 'Emergency' admissions?
 
 -- Top 20 doctors with highest unique patient count and their Elective vs Emergency rates

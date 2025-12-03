@@ -1,7 +1,6 @@
--- Business Question: Is there a correlation between patient demographics 
+-- Is there a correlation between patient demographics 
 -- (Age, Gender, Blood Type) and the prevalence of specific medical conditions?
 
--- Query 1: Age distribution by medical condition
 SELECT 
     mc.Condition_Name,
     CASE 
@@ -27,8 +26,6 @@ GROUP BY mc.Condition_Name,
     END
 ORDER BY mc.Condition_Name, Age_Group_Rank;
 
-
--- Query 2: Gender distribution by medical condition
 SELECT 
     Condition_Name,
     Gender,
@@ -48,8 +45,6 @@ FROM (
 ) AS gender_stats
 ORDER BY Condition_Name, Gender_Rank;
 
-
--- Query 3: Combined demographics
 SELECT 
     mc.Condition_Name,
     COUNT(DISTINCT a.Patient_ID) AS Total_Patients,

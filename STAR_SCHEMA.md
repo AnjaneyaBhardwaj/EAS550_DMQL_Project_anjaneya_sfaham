@@ -54,10 +54,6 @@
 | `Blood_Type` | A+, A-, B+, B-, O+, O-, AB+, AB- |
 | `Blood_Type_Group` | Derived: A, B, O, AB |
 
-**Sample Queries Enabled:**
-- Admission rates by age group
-- Gender distribution across conditions
-- Blood type correlation with conditions
 
 ---
 
@@ -73,10 +69,6 @@
 | `Specialty` | Derived/enriched field |
 | `Experience_Level` | Junior, Mid, Senior |
 
-**Sample Queries Enabled:**
-- Patient volume per doctor
-- Billing revenue by doctor
-- Readmission rates by doctor
 
 ---
 
@@ -94,10 +86,6 @@
 | `State` | Location state |
 | `Bed_Capacity` | Small (<100), Medium (100-500), Large (>500) |
 
-**Sample Queries Enabled:**
-- Admission volume by hospital
-- Geographic distribution of conditions
-- Seasonal load by hospital
 
 ---
 
